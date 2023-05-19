@@ -1,0 +1,48 @@
+{
+	"manifest_version": 2,
+	"name": "Aergo Connect",
+	"version": "0.3.0",
+	"version_name": "0.3.0",
+	"description": "Aergo Connect (Wallet Browser Extension)",
+	"author": "Aergo team and contributors",
+	"homepage_url": "https://github.com/aergoio/wallet-extension#readme",
+	"minimum_chrome_version": "64",
+	"minimum_opera_version": "51",
+
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+
+	"icons": {
+		"17": "b1b4347e132bb1e43353395f2c55af5c.png",
+		"102": "450dd34960f600f51b44083379e5e15c.png"
+	},
+	
+	"background": {
+		"page": "background.html",
+		"persistent": true
+	},
+
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["content-script.js"]
+		}
+	],
+
+	"browser_action": {
+		"default_icon": {
+		  "17": "b1b4347e132bb1e43353395f2c55af5c.png",
+		  "34": "af42eedd17675e28cab3c1167508668b.png"
+		},
+		"default_title": "Aergo Connect",
+		"default_popup": "popup.html"
+	},
+
+	"permissions": [
+		"activeTab",
+		"storage",
+		"unlimitedStorage",
+		"clipboardWrite",
+		"notifications",
+		"contextMenus"
+	]
+}
